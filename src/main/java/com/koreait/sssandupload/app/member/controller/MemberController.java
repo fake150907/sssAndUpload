@@ -3,6 +3,7 @@ package com.koreait.sssandupload.app.member.controller;
 import com.koreait.sssandupload.app.member.entity.Member;
 import com.koreait.sssandupload.app.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class MemberController {
     }
 
     @PostMapping("/join")
+   
     public String join(String username, String password, String email, MultipartFile profileImg, HttpSession session) {
         Member oldMember = memberService.getMemberByUsername(username);
 
